@@ -2,9 +2,9 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Ева, будешь моей валентинкой?</title>
+  <title>Ева, будешь моей валентинкой? 💖</title>
 
-  <!-- Милый шрифт от Google Fonts -->
+  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
@@ -12,9 +12,12 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <div class="container">
+    <img src="cat.png" alt="Котик" class="cat-img">
+
     <h1>Ева, будешь моей валентинкой? 💌</h1>
-    <p>Очень прошу тебя сказать «Да»…</p>
+    <p>Я очень надеюсь, что ты скажешь «Да»…</p>
 
     <div class="buttons">
       <button id="yesBtn">Да 💖</button>
@@ -23,20 +26,19 @@
 
     <div id="celebration" class="hidden">
       <div class="hearts">💖💘💝</div>
-      <p>Епии, епии! Ева, ты теперь моя валентинка! 🥰</p>
+      <p>Епиии! Ева, ты моя валентинка 🥰</p>
     </div>
   </div>
 
-  <!-- Второе окно‑приглашение после "Да" -->
+  <!-- Второе окно -->
   <div id="secondModal" class="modal hidden">
     <div class="modal-content">
       <h2>Тогда давай проведём 14 февраля вместе 💕</h2>
-      <p>Я хочу провести этот день с тобой и заняться тем, что уже давно придумал специально для нас.</p>
+      <p>Я хочу провести этот день с тобой и сделать его особенным.</p>
       <button id="modalOkBtn">Звучит идеально ✨</button>
     </div>
   </div>
 
-  <!-- Обрати внимание: имя файла = yepiii.mp3 -->
   <audio id="yaySound" src="yepiii.mp3"></audio>
 
   <script src="script.js"></script>
