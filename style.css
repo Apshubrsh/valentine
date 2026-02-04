@@ -6,7 +6,6 @@
 
 body {
   font-family: 'Nunito', system-ui, sans-serif;
-  /* розовый фон, сверху добавим котика как картинку */
   background: linear-gradient(135deg, #ff9a9e, #fecfef);
   min-height: 100vh;
   display: flex;
@@ -14,28 +13,27 @@ body {
   justify-content: center;
 }
 
-/* блок с котиком-фоном */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("cat.png"); /* сюда положи фото котика с именем cat.png */
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  background-size: 220px auto;
-  opacity: 0.22;
-  pointer-events: none;
-}
-
 .container {
-  background: rgba(255, 255, 255, 0.94);
-  padding: 24px 30px;
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 24px 30px 30px;
+  border-radius: 18px;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   max-width: 420px;
+  width: 100%;
   position: relative;
-  z-index: 1;
+}
+
+/* Котик */
+.cat-img {
+  width: 140px;
+  margin-bottom: 10px;
+  animation: catBounce 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes catBounce {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-10px); }
 }
 
 h1 {
@@ -45,16 +43,9 @@ h1 {
 
 p {
   margin-bottom: 20px;
-  font-weight: 400;
 }
 
-/* кнопки по бокам: да слева, нет справа */
 .buttons {
-  display: flex;
-  justify-content: space-between; /* по краям блока */
-  align-items: center;
-  width: 100%;
-  margin-top: 10px;
   position: relative;
   height: 80px;
 }
@@ -65,13 +56,15 @@ button {
   border: none;
   cursor: pointer;
   font-size: 16px;
-  transition: transform 0.15s, background 0.15s, box-shadow 0.15s;
+  transition: transform 0.15s, background 0.15s;
 }
 
 #yesBtn {
   background: #ff6f91;
   color: white;
   box-shadow: 0 4px 12px rgba(255, 111, 145, 0.5);
+  position: absolute;
+  left: 0;
 }
 
 #yesBtn:hover {
@@ -81,33 +74,33 @@ button {
 
 #noBtn {
   background: #f1f1f1;
-  position: absolute; /* нужно, чтобы могла убегать */
-  right: 0;           /* начнёт справа */
+  position: absolute;
+  right: 0;
 }
 
 #noBtn:hover {
   transform: scale(1.05);
 }
 
-/* блок после "Да" */
+/* После "Да" */
 .hidden {
   display: none;
 }
 
 #celebration {
   margin-top: 20px;
-  animation: pop 0.5s ease;
+  animation: pop 0.4s ease;
 }
 
 .hearts {
   font-size: 32px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   animation: float 1.2s ease-in-out infinite alternate;
 }
 
 @keyframes pop {
   from { transform: scale(0.7); opacity: 0; }
-  to   { transform: scale(1);   opacity: 1; }
+  to   { transform: scale(1); opacity: 1; }
 }
 
 @keyframes float {
@@ -115,8 +108,7 @@ button {
   to   { transform: translateY(-10px); }
 }
 
-/* модальное окно (второе предложение) */
-
+/* Модальное окно */
 .modal {
   position: fixed;
   inset: 0;
@@ -124,13 +116,17 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+  z-index: 10;
+}
+
+.modal.hidden {
+  display: none;
 }
 
 .modal-content {
-  background: #fff;
-  padding: 20px 24px;
-  border-radius: 16px;
+  background: white;
+  padding: 22px 26px;
+  border-radius: 18px;
   max-width: 420px;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
@@ -140,17 +136,8 @@ button {
   margin-bottom: 12px;
 }
 
-.modal-content p {
-  margin-bottom: 18px;
-}
-
 #modalOkBtn {
   background: #ff6f91;
-  color: #fff;
+  color: white;
   font-weight: 600;
-}
-
-#modalOkBtn:hover {
-  transform: scale(1.04);
-  background: #ff4f7b;
 }
